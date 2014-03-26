@@ -5,6 +5,9 @@ public class GuiTextScript : MonoBehaviour {
 
     public GUIStyle GameStyle;
 
+	private int m_Remaining;
+	private int m_Fallen;
+
     // Use this for initialization
     void Start() {
 
@@ -17,11 +20,24 @@ public class GuiTextScript : MonoBehaviour {
 
     void OnGUI() {
 
-        DrawOutline(new Rect(20, 20, 50, 25), "Cans: 0", GameStyle, Color.red, Color.yellow);
-        DrawOutline(new Rect(Screen.width -310, 20, 50, 25), "Reamining: 18", GameStyle, Color.red, Color.yellow);
+        DrawOutline(
+			new Rect(20, 20, 50, 25), 
+			"Cans: " + m_Fallen.ToString("00"), 
+			GameStyle, 
+			Color.red, 
+			Color.yellow);
+
+        DrawOutline(
+			new Rect(Screen.width -310, 20, 50, 25), 
+			"Reamining: " + m_Remaining.ToString("00")  , GameStyle, 
+			Color.red, 
+			Color.yellow);
     }
 
-    //EGUI.js
+    public void SetCans(int fallen, int remaining){
+		m_Fallen = fallen;
+		m_Remaining = remaining;
+	}
 
     //draw text of style color, with a specified outline color
     public static void DrawOutline(Rect position, string text, GUIStyle style, Color outColor) {
