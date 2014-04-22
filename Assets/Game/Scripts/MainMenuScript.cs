@@ -10,7 +10,10 @@ public class MainMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        if (GameManagerScript.TotalNumberCans != 0)
+            GameManagerScript.TotalNumberCans = 0;
+
 	}
 
     void OnGUI() {

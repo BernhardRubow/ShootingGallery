@@ -7,10 +7,11 @@ public class GuiTextScript : MonoBehaviour {
 
 	private int m_Remaining;
 	private int m_Fallen;
+    private int m_Remaining_Balls;
 
     // Use this for initialization
     void Start() {
-
+        m_Remaining_Balls = 9;
     }
 
     // Update is called once per frame
@@ -32,12 +33,34 @@ public class GuiTextScript : MonoBehaviour {
 			"Reamining: " + m_Remaining.ToString("00")  , GameStyle, 
 			Color.red, 
 			Color.yellow);
+
+        DrawOutline(
+            new Rect(20,Screen.height - 80, 50, 25),
+            "Balls: " + m_Remaining_Balls.ToString("00"), GameStyle,
+            Color.red,
+            Color.yellow
+            );
+
+        DrawOutline(
+            new Rect(Screen.width - 310, Screen.height - 80, 50, 25),
+            "Total Cans: " + GameManagerScript.TotalNumberCans.ToString("00"), GameStyle,
+            Color.red,
+            Color.yellow);
     }
 
     public void SetCans(int fallen, int remaining){
 		m_Fallen = fallen;
 		m_Remaining = remaining;
 	}
+
+    public void DecrementBalls() {
+
+        m_Remaining_Balls -= 1;
+
+        if (m_Remaining_Balls == 0)
+            GameManagerScript.GameState = "End";
+
+    }
 
     //draw text of style color, with a specified outline color
     public static void DrawOutline(Rect position, string text, GUIStyle style, Color outColor) {
