@@ -19,14 +19,19 @@ public class MainMenuScript : MonoBehaviour {
     void OnGUI() {
 
 
-        if (GUI.Button(new Rect(200, 50, 400, 100), "New Game"))
+        if (GUI.Button(new Rect(200, 53, 400, 53), "New Game"))
             Application.LoadLevel("MainGameScene");
 
-        if (GUI.Button(new Rect(200, 190, 400, 100), "Credit"))
+        if (GUI.Button(new Rect(200, 159, 400, 53), "Intro"))
+            Application.LoadLevel("IntroScene");
+
+        if (GUI.Button(new Rect(200, 265, 400, 53), "Credits"))
             Application.LoadLevel("CreditsScene");
 
-        if (GUI.Button(new Rect(200, 330, 400, 100), "Exit"))
+        if (GUI.Button(new Rect(200, 371, 400, 53), "Exit"))
             Application.Quit();
+
+        
 
     }
 }
