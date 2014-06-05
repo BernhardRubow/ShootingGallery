@@ -73,13 +73,13 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: de.nvp.shootinggallery
+  iPhoneBundleIdentifier: de.NewVisionsProject.ShootingGallery
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 0d344014ef2fdb44f9a3c24b41d968c0
-  iPhoneBundleVersion: 1.0
-  AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  iPhoneBundleVersion: 1.004
+  AndroidBundleVersionCode: 4
+  AndroidMinSdkVersion: 13
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -106,15 +106,18 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/Bernhard/SkyDrive/Documents/U/Unity3d/KeyStore/user.keystore
+  AndroidKeyaliasName: shootinggallery
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
     - m_Icon: {fileID: 0}
       m_Size: 128
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   wiiRegion: 1

@@ -1,12 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\julian\scripts\CreditsMoveScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\X_Evaluation\movegame\projects\eval\version_001\Assets\docs\Neues Textdokument.txt">
     <Files>
-      <File FileName="Assets\julian\scripts\CreditsMoveScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\FingerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\GameManagerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\GuiTextScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\CanScript.cs" Line="17" Column="50" />
+      <File FileName="..\..\..\X_Evaluation\movegame\projects\eval\version_001\Assets\docs\Neues Textdokument.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

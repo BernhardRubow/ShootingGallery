@@ -22,7 +22,7 @@ public class CreditsMoveScript : MonoBehaviour {
 
         m_Transform.Translate(Vector3.up * 75 * Time.deltaTime);
 
-        if (m_Transform.position.y > 1100) {
+        if (m_Transform.position.y > 1300) {
             m_Time += Time.deltaTime;
             if (m_Time > 3.0f) {
                 Application.LoadLevel("MenuScene");

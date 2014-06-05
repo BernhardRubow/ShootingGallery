@@ -72,18 +72,24 @@ public class GameManagerScript : MonoBehaviour {
         // Wait 5 Seconds
         yield return new WaitForSeconds(5);
 
+        // Ensure that no sound is played, when
+        // the new cans are build up
+        CanScript.SoundEnabled = false;
+
         // If the player knocked down all 18
         // cans take him to the next level.
         if (m_FallenCans == 18) {
             //save camera position.
             GameManagerScript.LastCameraXPosition = Camera.main.transform.position.x;
+            
             // load next level
             Application.LoadLevel("MainGameScene");
         } else {
             // turn off the music
-            var musicManager = GameObject.FindGameObjectWithTag("MusicManager");
+            var musicManager = GameObject.FindGameObjectsWithTag("MusicManager");
             GameMusicScript.IsPlaying = false;
-            Destroy(musicManager);
+            for (int i = 0, n = musicManager.Length; i < n; i++ )
+                DestroyImmediate(musicManager[i]);
             // Load the menu
             Application.LoadLevel("MenuScene");
         }

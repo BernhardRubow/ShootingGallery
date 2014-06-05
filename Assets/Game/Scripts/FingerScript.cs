@@ -25,7 +25,7 @@ public class FingerScript : MonoBehaviour {
         
 		
 		if (Input.touchCount > 0 && m_current == null) {
-
+            CanScript.SoundEnabled = true;
             var touchposition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             float distance = 1000;
             var index = -1;
@@ -44,19 +44,6 @@ public class FingerScript : MonoBehaviour {
 
 
 
-            
-
-			/*
-			var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, 100)) {
-				// Debug.DrawLine (ray.origin, hit.point);
-				var objectHit = hit.collider.gameObject;
-				if (objectHit.tag == "Ball")
-					m_current = objectHit.gameObject;
-				
-			}
-            */
 		}
 
 		if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary)  && m_current != null) {
@@ -85,7 +72,7 @@ public class FingerScript : MonoBehaviour {
 
 
 		if (Input.GetMouseButtonDown(0) && m_current == null) {
-            Debug.Log("Mouse down");
+            CanScript.SoundEnabled = true;
 
             var touchposition = Input.mousePosition;
 
@@ -118,9 +105,16 @@ public class FingerScript : MonoBehaviour {
 		}
 
         if (Input.GetMouseButtonUp(0) && m_current != null) {
+
+            var mp = Input.mousePosition;
+            mp.z = 1.0f;
+            mp.x = Camera.main.transform.position.x;
+            var point = Camera.main.ScreenToWorldPoint(mp);
+            point.x = Camera.main.transform.position.x;
+            m_current.transform.position = point;
             m_current.rigidbody.velocity = Vector3.zero;
 			m_current.rigidbody.useGravity = true;
-			m_current.rigidbody.AddForce(new Vector3(0 + Random.Range(0.05f, -0.05f), 1f + Random.Range(0.05f, -0.05f), 1.35f + Random.Range(0.15f, -0.15f)) * 175.0f);
+			m_current.rigidbody.AddForce(new Vector3(0 + Random.Range(0.05f, -0.05f), 1f + Random.Range(0.05f, -0.05f), 1.35f ) * 175.0f);
             m_current = null;
             m_GuiTextScript.DecrementBalls();
         }

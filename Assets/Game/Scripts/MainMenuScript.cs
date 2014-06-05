@@ -28,9 +28,9 @@ public class MainMenuScript : MonoBehaviour {
         if (GUI.Button(new Rect(200, 265, 400, 53), "Credits"))
             Application.LoadLevel("CreditsScene");
 
-        if (GUI.Button(new Rect(200, 371, 400, 53), "Exit"))
+        if (GUI.Button(new Rect(200, 371, 400, 53), "Exit")) { 
             Application.Quit();
-
+        }
         
 
     }
