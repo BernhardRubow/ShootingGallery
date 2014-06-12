@@ -7,7 +7,7 @@ public class GuiTextScript : MonoBehaviour {
 
 	private int m_Remaining;
 	private int m_Fallen;
-    private int m_Remaining_Balls;
+    public int m_Remaining_Balls;
 
     // Use this for initialization
     void Start() {
@@ -43,7 +43,7 @@ public class GuiTextScript : MonoBehaviour {
 
         DrawOutline(
             new Rect(Screen.width - 310, Screen.height - 80, 50, 25),
-            "Total Cans: " + GameManagerScript.TotalNumberCans.ToString("00"), GameStyle,
+            "Score: " + GameManagerScript.TotalNumberCans.ToString("00"), GameStyle,
             Color.red,
             Color.yellow);
     }

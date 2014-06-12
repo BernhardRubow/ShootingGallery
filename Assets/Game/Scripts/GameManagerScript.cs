@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
 
+
+
     // private field for the score
     private int m_Score = 0;
     
@@ -25,7 +27,7 @@ public class GameManagerScript : MonoBehaviour {
     // to restore position of the camera
     // to the last player position when
     // level is reloaded
-    public static float LastCameraXPosition = 3;
+    public static float LastCameraXPosition = 0;
 
     // simple (very simple) statemachine
     public static string GameState;
@@ -54,6 +56,10 @@ public class GameManagerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (m_FallenCans == 18) {
+			GameState = "End";
+		}
+
         // End condition for current game
         if (GameState == "End") {
             
@@ -79,6 +85,9 @@ public class GameManagerScript : MonoBehaviour {
         // If the player knocked down all 18
         // cans take him to the next level.
         if (m_FallenCans == 18) {
+
+			TotalNumberCans+=m_GuiText.m_Remaining_Balls*10;
+
             //save camera position.
             GameManagerScript.LastCameraXPosition = Camera.main.transform.position.x;
             
@@ -90,6 +99,8 @@ public class GameManagerScript : MonoBehaviour {
             GameMusicScript.IsPlaying = false;
             for (int i = 0, n = musicManager.Length; i < n; i++ )
                 DestroyImmediate(musicManager[i]);
+
+
             // Load the menu
             Application.LoadLevel("MenuScene");
         }

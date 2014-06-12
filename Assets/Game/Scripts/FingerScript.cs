@@ -64,7 +64,8 @@ public class FingerScript : MonoBehaviour {
 			m_current.transform.position = point;
 			m_current.rigidbody.velocity = Vector3.zero;
 			m_current.rigidbody.useGravity = true;
-			m_current.rigidbody.AddForce(new Vector3(0, 1f, 1.35f) * 175.0f);
+			//m_current.rigidbody.AddForce(new Vector3(0, 1f, 1.35f) * 175.0f);
+			m_current.rigidbody.AddForce(new Vector3(0 + Random.Range(0.05f, -0.05f), 1f + Random.Range(0.05f, -0.05f), 1.35f ) * 175.0f);
 			
 			m_current = null;
             m_GuiTextScript.DecrementBalls();
