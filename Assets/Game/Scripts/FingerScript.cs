@@ -23,6 +23,9 @@ public class FingerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         
+        /////////////////
+        // Touch input //
+        /////////////////
 		
 		if (Input.touchCount > 0 && m_current == null) {
             CanScript.SoundEnabled = true;
@@ -72,6 +75,10 @@ public class FingerScript : MonoBehaviour {
 		}
 
 
+        /////////////////
+        // Mouse Input //
+        /////////////////
+
 		if (Input.GetMouseButtonDown(0) && m_current == null) {
             CanScript.SoundEnabled = true;
 
@@ -91,6 +98,12 @@ public class FingerScript : MonoBehaviour {
             if (index >= 0) {
                 m_current = m_Balls[index];
                 m_Balls.RemoveAt(index);
+
+                // enable Particle system on ball
+                ParticleSystem ps = m_current.transform.GetChild(0).GetComponent<ParticleSystem>();
+                ps.Play();
+                ps.emissionRate = 10.0f;
+                ps.startSize = 0.06f;
             }
 
 
@@ -116,8 +129,18 @@ public class FingerScript : MonoBehaviour {
             m_current.rigidbody.velocity = Vector3.zero;
 			m_current.rigidbody.useGravity = true;
 			m_current.rigidbody.AddForce(new Vector3(0 + Random.Range(0.05f, -0.05f), 1f + Random.Range(0.05f, -0.05f), 1.35f ) * 175.0f);
+
+            // enable Particle system on ball
+            ParticleSystem ps = m_current.transform.GetChild(0).GetComponent<ParticleSystem>();
+            ps.startSize = 0.15f;
+            ps.emissionRate = 35.0f;
+            
+            Debug.Log("Emission Rate = " + ps.emissionRate.ToString());
+
             m_current = null;
             m_GuiTextScript.DecrementBalls();
+
+            
         }
         
 		
